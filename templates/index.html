@@ -86,14 +86,49 @@
         input[type="file"] {
             display: none;
         }
+
+        /* Styles pour le spinner */
+        .spinner {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .spinner div {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #4CAF50;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="spinner" id="loading-spinner">
+        <div></div>
+    </div>
     <div class="container">
         <h1>
             <img src="../static/loi.png" alt="Logo" style="max-width: 50px; vertical-align: middle;"> JustiScan
         </h1>
-        <form method="post" action="/predict" enctype="multipart/form-data">
+        <form method="post" action="/predict" enctype="multipart/form-data" onsubmit="showLoading()">
             <label for="file" class="custom-file-btn">
                 <img src="../static/PdfDrop.png" alt="Icône PDF">
             </label>
@@ -109,5 +144,11 @@
         </div>
         {% endif %}
     </div>
+
+    <script>
+        function showLoading() {
+            document.getElementById('loading-spinner').style.display = 'flex';
+        }
+    </script>
 </body>
 </html>
