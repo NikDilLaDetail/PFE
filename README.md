@@ -2,7 +2,7 @@
 
 L'application est déployée sur Render et accessible via le lien suivant :
 
-🔗 [Lien vers l'application](https://pfe2-6pkl.onrender.com)
+🔗 [Lien vers l'application](https://pfe-6scq.onrender.com)
 
 ![QR Code pour accéder à l'application](static/qr_code.png)
 
